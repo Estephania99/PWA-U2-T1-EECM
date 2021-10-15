@@ -2,11 +2,13 @@ let url = window.location.href;
 let swDirectory = "/PWA-U2-T1-EECM/sw.js"
 
 if(navigator.serviceWorker){
-    if(url.includes('localhost')){
+
+    console.log(url);
+    /*if(url.includes('localhost')){
         navigator.serviceWorker.register('/sw.js');
     }else{
         navigator.serviceWorker.register(swDirectory);
-    }
+    }*/
 }
 
 let principal = $('#principal');
