@@ -8,8 +8,8 @@ let url = _window.location.href;
 self.addEventListener('install', (event) => {
     console.log('SW: Instalado');
 
-    const staticCache = caches.open(CACHE_STATIC_NAME).then((cache) => {
-        //if(url.includes('localhost')){
+    /*const staticCache = caches.open(CACHE_STATIC_NAME).then((cache) => {
+        if(url.includes('localhost')){
             return cache.addAll([
                 '/',
                 'index', //si pongo index.html no me lo reconoce
@@ -19,8 +19,18 @@ self.addEventListener('install', (event) => {
                 'images/noticia4.png',
                 'js/app.js'
             ]);
-        
-    });
+        }else{
+            return cache.addAll([
+                '/',
+                'index',
+                'images/noticia1.png',
+                'images/noticia2.png',
+                'images/noticia3.png',
+                'images/noticia4.png',
+                'js/app.js'
+            ]);
+        }
+    });*/
 
     const inmutableCache = caches.open(CACHE_INMUTABLE_NAME).then((cache) => {
         return cache.addAll([
@@ -30,8 +40,8 @@ self.addEventListener('install', (event) => {
         ]);
     });
 
-
-    event.waitUntil(Promise.all([staticCache, inmutableCache]));
+    event.waitUntil(inmutableCache)
+    //event.waitUntil(Promise.all([staticCache, inmutableCache]));
 });
 
 self.addEventListener('fetch', (event) => {
