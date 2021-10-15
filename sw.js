@@ -6,8 +6,13 @@ var _window = this || self || window;
 let url = _window.location.href;
 
 self.addEventListener('install', (event) => {
-    console.log('SW: Instalado');
-
+    
+    
+    if(url.includes('localhost')){
+        console.log('SW: Instalado en localhost');
+    }else{
+        console.log('SW: Instalado en git');
+    }
     const staticCache = caches.open(CACHE_STATIC_NAME).then((cache) => {
         if(url.includes('localhost')){
             return cache.addAll([
