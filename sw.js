@@ -22,12 +22,12 @@ self.addEventListener('install', (event) => {
         }else{
             return cache.addAll([
                 '/',
-                '/PWA-U2-T1-EECM/index', //si pongo index.html no me lo reconoce
-                '/PWA-U2-T1-EECM/images/noticia1.png',
-                '/PWA-U2-T1-EECM/images/noticia2.png',
-                '/PWA-U2-T1-EECM/images/noticia3.png',
-                '/PWA-U2-T1-EECM/images/noticia4.png',
-                '/PWA-U2-T1-EECM/js/app.js'
+                'index',
+                'images/noticia1.png',
+                'images/noticia2.png',
+                'images/noticia3.png',
+                'images/noticia4.png',
+                'js/app.js'
             ]);
         }
     });
