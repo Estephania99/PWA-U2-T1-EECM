@@ -26,7 +26,7 @@ self.addEventListener('install', (event) => {
             ]);
         }else{
             return cache.addAll([
-                'PWA-U2-T1-EECM/images/noticia1.png'
+                'https://estephania99.github.io/PWA-U2-T1-EECM/images/noticia1.png'
             ]);
         }
     });
