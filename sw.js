@@ -6,8 +6,13 @@ var _window = this || self || window;
 let url = _window.location.href;
 
 self.addEventListener('install', (event) => {
-    console.log('SW: Instalado');
-
+    
+    
+    if(url.includes('localhost')){
+        console.log('SW: Instalado en localhost');
+    }else{
+        console.log('SW: Instalado en git');
+    }
     const staticCache = caches.open(CACHE_STATIC_NAME).then((cache) => {
         if(url.includes('localhost')){
             return cache.addAll([
@@ -21,7 +26,13 @@ self.addEventListener('install', (event) => {
             ]);
         }else{
             return cache.addAll([
-                'PWA-U2-T1-EECM/images/noticia1.png'
+                'https://estephania99.github.io/PWA-U2-T1-EECM/',
+                'https://estephania99.github.io/PWA-U2-T1-EECM/index',
+                'https://estephania99.github.io/PWA-U2-T1-EECM/images/noticia1.png',
+                'https://estephania99.github.io/PWA-U2-T1-EECM/images/noticia2.png',
+                'https://estephania99.github.io/PWA-U2-T1-EECM/images/noticia3.png',
+                'https://estephania99.github.io/PWA-U2-T1-EECM/images/noticia4.png',
+                'https://estephania99.github.io/PWA-U2-T1-EECM/js/app.js'
             ]);
         }
     });
